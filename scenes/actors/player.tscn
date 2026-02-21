@@ -2,8 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://60pbg4uvdmgu" path="res://icon.svg" id="1_7wueq"]
 [ext_resource type="Script" uid="uid://d3bbo3136ngqs" path="res://scripts/state_machine/state_machine.gd" id="1_15tap"]
+[ext_resource type="Script" uid="uid://bjo8jnf35t6v4" path="res://scripts/actors/player.gd" id="1_oomub"]
 [ext_resource type="Script" uid="uid://daid1e4uvi3vn" path="res://scripts/state_machine/player/idle_state.gd" id="2_ru62r"]
 [ext_resource type="Script" uid="uid://cbd7qpcl4jpr6" path="res://scripts/state_machine/player/walk_state.gd" id="4_oomub"]
+[ext_resource type="Script" uid="uid://cl5knliob4a88" path="res://scripts/state_machine/player/jump_state.gd" id="6_8y416"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wueq"]
+size = Vector2(24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8y416"]
 animations = [{
@@ -19,25 +24,39 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_7wueq")
 }],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7wueq")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
 [node name="player" type="CharacterBody2D" unique_id=683210676]
+script = ExtResource("1_oomub")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891040647]
+shape = SubResource("RectangleShape2D_7wueq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=970938773]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_8y416")
-animation = &"idle"
+animation = &"jump"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1966523323]
 script = ExtResource("1_15tap")
+initial_state_path = NodePath("IdleState")
 
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=391749457]
 script = ExtResource("2_ru62r")
 
 [node name="WalkState" type="Node" parent="StateMachine" unique_id=660294318]
 script = ExtResource("4_oomub")
+
+[node name="JumpState" type="Node" parent="StateMachine" unique_id=1293434487]
+script = ExtResource("6_8y416")
