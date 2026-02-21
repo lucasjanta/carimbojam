@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var gravity_force := 900.0
 
 
+
 func _physics_process(delta: float) -> void:
 	# Adiciona gravidade
 	if not is_on_floor():
