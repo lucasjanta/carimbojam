@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://qq6vjpfdfcm4"]
+
+[ext_resource type="Script" uid="uid://cbyh84hfykt38" path="res://scenes/collectibles/carimbos/efeitos/pulo_duplo.gd" id="1_indke"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7onrb"]
+
+[node name="pulo_duplo" type="Node2D" unique_id=1621109887]
+script = ExtResource("1_indke")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=230904564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=68133939]
+shape = SubResource("CircleShape2D_7onrb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1565805252]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

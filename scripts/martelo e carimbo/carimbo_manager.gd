@@ -1,0 +1,24 @@
+extends Node
+
+var collected_stamps : Array[CarimboData] = []
+var equipped_stamps : Array[CarimboData] = []
+var current_slot : int = 0
+var cooldowns : Array[float] = [0,0,0]
+
+func collect_stamp(stamp : CarimboData):
+	collected_stamps.append(stamp)
+
+func use_current_stamp():
+	var stamp = equipped_stamps[current_slot]
+
+	if cooldowns[current_slot] > 0:
+		return
+
+	activate_stamp(stamp)
+	cooldowns[current_slot] = stamp.cooldown
+	
+func activate_stamp(stamp: CarimboData):
+	var effect_instance = stamp.effect_scene.instantiate()
+	get_parent().add_child(effect_instance)
+	# Adicionar local correto para lançar habilidade
+	effect_instance.global_position = get_parent().global_position

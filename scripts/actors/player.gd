@@ -1,9 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
 @export var speed := 250.0
-@export var jump_force := -400.0
+@export var jump_force := -300.0
 @export var gravity_force := 900.0
-
+@onready var carimbo_manager: Node = $CarimboManager
 
 
 func _physics_process(delta: float) -> void:

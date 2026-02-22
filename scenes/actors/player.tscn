@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cbd7qpcl4jpr6" path="res://scripts/state_machine/player/walk_state.gd" id="4_oomub"]
 [ext_resource type="Script" uid="uid://cl5knliob4a88" path="res://scripts/state_machine/player/jump_state.gd" id="6_8y416"]
 [ext_resource type="Script" uid="uid://n7mv3xkn64sv" path="res://scripts/martelo e carimbo/carimbo_collision.gd" id="7_7860b"]
+[ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="8_xx81n"]
+[ext_resource type="Script" uid="uid://law37gkjtiu2" path="res://scripts/martelo e carimbo/carimbo_manager.gd" id="9_0w4p8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wueq"]
 size = Vector2(24, 24)
@@ -46,26 +48,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CarimboCollision:position")
+tracks/0/path = NodePath("CarimboCollision/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(41, -19)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CarimboCollision/CollisionShape2D:disabled")
+tracks/1/path = NodePath("CarimboCollision:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [-19.0]
 }
 
 [sub_resource type="Animation" id="Animation_xx81n"]
@@ -75,26 +77,26 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CarimboCollision:position")
+tracks/0/path = NodePath("CarimboCollision/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(41, -19), Vector2(41, 5)]
+"update": 1,
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CarimboCollision/CollisionShape2D:disabled")
+tracks/1/path = NodePath("CarimboCollision:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [-19.0, 15.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0w4p8"]
@@ -138,6 +140,178 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1580855117]
 libraries/ = SubResource("AnimationLibrary_0w4p8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56109255]
+
+[node name="Inventory" type="Control" parent="CanvasLayer" unique_id=355448811]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_right = -160.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Inventory" unique_id=1099743150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/PanelContainer" unique_id=1186256802]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/PanelContainer/MarginContainer" unique_id=539722124]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PanelContainer/MarginContainer/VBoxContainer" unique_id=719240582]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_xx81n")
+text = "Carimbos"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Inventory/PanelContainer/MarginContainer/VBoxContainer" unique_id=1033833304]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Inventory/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1859763833]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1017231628]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI" unique_id=1589537655]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/PanelContainer" unique_id=2116620066]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer" unique_id=724357023]
+layout_mode = 2
+alignment = 1
+
+[node name="Slot1" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer" unique_id=834069672]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1" unique_id=1375879916]
+layout_mode = 2
+texture = ExtResource("1_7wueq")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1" unique_id=211317157]
+layout_mode = 2
+
+[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1/VBoxContainer" unique_id=753046182]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("8_xx81n")
+theme_override_font_sizes/font_size = 4
+text = "Pulo Duplo"
+horizontal_alignment = 2
+
+[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1/VBoxContainer" unique_id=1904031059]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("8_xx81n")
+theme_override_font_sizes/font_size = 4
+text = "1"
+horizontal_alignment = 1
+
+[node name="Slot2" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer" unique_id=75537636]
+modulate = Color(1, 1, 1, 0.3137255)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2" unique_id=1089476920]
+layout_mode = 2
+texture = ExtResource("1_7wueq")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2" unique_id=2121177653]
+layout_mode = 2
+
+[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2/VBoxContainer" unique_id=1381637825]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("8_xx81n")
+theme_override_font_sizes/font_size = 4
+text = "Pulo Duplo"
+horizontal_alignment = 2
+
+[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2/VBoxContainer" unique_id=885266164]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("8_xx81n")
+theme_override_font_sizes/font_size = 4
+text = "1"
+horizontal_alignment = 1
+
+[node name="Slot3" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer" unique_id=133028383]
+modulate = Color(1, 1, 1, 0.3137255)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3" unique_id=1067223606]
+layout_mode = 2
+texture = ExtResource("1_7wueq")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3" unique_id=1598848620]
+layout_mode = 2
+
+[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3/VBoxContainer" unique_id=294539205]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("8_xx81n")
+theme_override_font_sizes/font_size = 4
+text = "Pulo Duplo"
+horizontal_alignment = 2
+
+[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3/VBoxContainer" unique_id=793620119]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("8_xx81n")
+theme_override_font_sizes/font_size = 4
+text = "1"
+horizontal_alignment = 1
+
+[node name="CarimboManager" type="Node" parent="." unique_id=147787215]
+script = ExtResource("9_0w4p8")
 
 [connection signal="body_entered" from="CarimboCollision" to="CarimboCollision" method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="CarimboCollision" method="_on_animation_player_animation_finished"]
