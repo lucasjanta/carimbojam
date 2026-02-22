@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ck1ymr0tdo6qh"]
+
+[ext_resource type="Script" uid="uid://b42dowph2tcf1" path="res://scripts/UI/carimbo_slot.gd" id="1_i6nda"]
+[ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="2_i6nda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kggx2"]
+bg_color = Color(0, 0, 0, 0.3137255)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4rn8"]
+
+[node name="CarimboSlot" type="PanelContainer" unique_id=1276959373]
+custom_minimum_size = Vector2(25, 25)
+script = ExtResource("1_i6nda")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1944851997]
+layout_mode = 2
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1783675873]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=749500536]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=66082220]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i6nda")
+theme_override_font_sizes/font_size = 3
+text = "pulo duplo"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=459860485]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="selectedSlotLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1993676647]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_i6nda")
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_kggx2")
+text = "1"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1596054642]
+layout_mode = 2
+focus_mode = 1
+focus_behavior_recursive = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c4rn8")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]

@@ -1,4 +1,5 @@
 extends Node
+@onready var inventory: Control = $"../CanvasLayer/Inventory"
 
 var collected_stamps : Array[CarimboData] = []
 var equipped_stamps : Array[CarimboData] = []
@@ -7,6 +8,7 @@ var cooldowns : Array[float] = [0,0,0]
 
 func collect_stamp(stamp : CarimboData):
 	collected_stamps.append(stamp)
+	inventory.populate_stamps(collected_stamps)
 
 func use_current_stamp():
 	var stamp = equipped_stamps[current_slot]

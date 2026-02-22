@@ -1,22 +1,55 @@
 [gd_scene format=3 uid="uid://dm5n0y3rh5d0s"]
 
 [ext_resource type="Script" uid="uid://bbdo26e00niwj" path="res://scripts/martelo e carimbo/carimbo_pickup.gd" id="1_2swpm"]
-[ext_resource type="Texture2D" uid="uid://ckxj4egbte6cc" path="res://assets/arma e carimbos/carimbo-pulo.png" id="2_p8a07"]
-[ext_resource type="Script" uid="uid://bagnnx2hwje55" path="res://scripts/martelo e carimbo/carimboItem.gd" id="3_yxvlx"]
-
-[sub_resource type="Resource" id="Resource_eq4pd"]
-script = ExtResource("3_yxvlx")
-name = "pulo duplo"
-icon = ExtResource("2_p8a07")
-metadata/_custom_type_script = "uid://bagnnx2hwje55"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_imcj5"]
 
+[sub_resource type="Animation" id="Animation_tryc6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_p8a07"]
+resource_name = "up_down"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2617993877991494, 0.0, -0.2617993877991494]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxvlx"]
+_data = {
+&"RESET": SubResource("Animation_tryc6"),
+&"up_down": SubResource("Animation_p8a07")
+}
+
 [node name="CarimboPickup" type="Area2D" unique_id=1606225206]
 script = ExtResource("1_2swpm")
-stamp_data = SubResource("Resource_eq4pd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=913291306]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037661611]
 shape = SubResource("CircleShape2D_imcj5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=146777106]
+libraries/ = SubResource("AnimationLibrary_yxvlx")
+autoplay = &"up_down"

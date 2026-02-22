@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CarimboData" format=3 uid="uid://b16papwe5wjbr"]
+
+[ext_resource type="PackedScene" uid="uid://qq6vjpfdfcm4" path="res://scenes/collectibles/carimbos/efeitos/pulo_duplo.tscn" id="1_dgqia"]
+[ext_resource type="Texture2D" uid="uid://ckxj4egbte6cc" path="res://assets/arma e carimbos/carimbo-pulo.png" id="2_8tgll"]
+[ext_resource type="Script" uid="uid://bagnnx2hwje55" path="res://scripts/martelo e carimbo/carimboItem.gd" id="3_ciao4"]
+
+[resource]
+script = ExtResource("3_ciao4")
+name = "pulo duplo"
+description = "ao acertar no chão, o personagem é lançado para cima"
+icon = ExtResource("2_8tgll")
+cooldown = 1.5
+effect_scene = ExtResource("1_dgqia")
+metadata/_custom_type_script = "uid://bagnnx2hwje55"
