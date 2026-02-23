@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bfmi2guxo2nyc" path="res://scenes/actors/player.tscn" id="2_43dxg"]
 [ext_resource type="PackedScene" uid="uid://dm5n0y3rh5d0s" path="res://scenes/collectibles/carimbos/carimbo_pickup.tscn" id="3_61odd"]
 [ext_resource type="Resource" uid="uid://b16papwe5wjbr" path="res://scenes/collectibles/carimbos/recursos/pulo_duplo.tres" id="4_6jffa"]
+[ext_resource type="Resource" uid="uid://c1d0u5f24jl3a" path="res://scenes/collectibles/carimbos/recursos/explosao.tres" id="5_6jffa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43dxg"]
 texture = ExtResource("1_i4g7q")
@@ -803,3 +804,7 @@ limit_bottom = 192
 [node name="CarimboPickup" parent="." unique_id=1606225206 instance=ExtResource("3_61odd")]
 position = Vector2(156, 119)
 stamp_data = ExtResource("4_6jffa")
+
+[node name="CarimboPickup2" parent="." unique_id=2133890556 instance=ExtResource("3_61odd")]
+position = Vector2(272, 37)
+stamp_data = ExtResource("5_6jffa")

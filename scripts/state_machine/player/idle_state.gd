@@ -1,6 +1,6 @@
 extends State
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var carimbo_collision: Area2D = $"../../CarimboCollision"
+@onready var stamp_effect_position: Marker2D = $"../../StampEffectPosition"
 
 var dir : int = 1
 
@@ -22,9 +22,9 @@ func physics_update(delta):
 func update_animation():
 	if dir > 0:
 		animated_sprite_2d.flip_h = false
-		carimbo_collision.position.x = 41
+		stamp_effect_position.position.x = 40
 	elif dir < 0:
 		animated_sprite_2d.flip_h = true
-		carimbo_collision.position.x = -41
+		stamp_effect_position.position.x = -40
 	
 	animated_sprite_2d.play("idle")

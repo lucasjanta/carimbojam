@@ -9,6 +9,5 @@ script = ExtResource("3_ciao4")
 name = "pulo duplo"
 description = "ao acertar no chão, o personagem é lançado para cima"
 icon = ExtResource("2_8tgll")
-cooldown = 1.5
 effect_scene = ExtResource("1_dgqia")
 metadata/_custom_type_script = "uid://bagnnx2hwje55"

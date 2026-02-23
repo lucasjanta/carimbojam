@@ -1,5 +1,6 @@
-extends Resource
 class_name CarimboData
+extends Resource
+
 
 @export var name : String
 @export var description : String

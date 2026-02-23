@@ -6,11 +6,13 @@
 [ext_resource type="Script" uid="uid://daid1e4uvi3vn" path="res://scripts/state_machine/player/idle_state.gd" id="2_ru62r"]
 [ext_resource type="Script" uid="uid://cbd7qpcl4jpr6" path="res://scripts/state_machine/player/walk_state.gd" id="4_oomub"]
 [ext_resource type="Script" uid="uid://cl5knliob4a88" path="res://scripts/state_machine/player/jump_state.gd" id="6_8y416"]
-[ext_resource type="Script" uid="uid://n7mv3xkn64sv" path="res://scripts/martelo e carimbo/carimbo_collision.gd" id="7_7860b"]
 [ext_resource type="Script" uid="uid://cls0r4k0smw2v" path="res://scripts/UI/inventory.gd" id="8_wl55n"]
 [ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="8_xx81n"]
+[ext_resource type="Script" uid="uid://bu2k51ooo6588" path="res://scripts/state_machine/player/use_stamp_state.gd" id="8_ypltb"]
 [ext_resource type="Script" uid="uid://law37gkjtiu2" path="res://scripts/martelo e carimbo/carimbo_manager.gd" id="9_0w4p8"]
 [ext_resource type="Script" uid="uid://ch1hy6qfltocf" path="res://scripts/UI/carimbos_container.gd" id="11_kggx2"]
+[ext_resource type="Script" uid="uid://b8dl4rrrivl36" path="res://scripts/UI/carimbos_ui.gd" id="12_c4rn8"]
+[ext_resource type="Script" uid="uid://djcsynxh0eig3" path="res://scripts/UI/equipped_slot.gd" id="14_nmlhc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wueq"]
 size = Vector2(24, 24)
@@ -42,76 +44,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8y416"]
-radius = 16.0
-
-[sub_resource type="Animation" id="Animation_7860b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CarimboCollision/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CarimboCollision:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-19.0]
-}
-
-[sub_resource type="Animation" id="Animation_xx81n"]
-resource_name = "carimbada"
-length = 0.15
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CarimboCollision/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CarimboCollision:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-19.0, 15.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0w4p8"]
-_data = {
-&"RESET": SubResource("Animation_7860b"),
-&"carimbada": SubResource("Animation_xx81n")
-}
-
-[node name="player" type="CharacterBody2D" unique_id=683210676]
+[node name="player" type="CharacterBody2D" unique_id=683210676 groups=["player"]]
 script = ExtResource("1_oomub")
 
 [node name="CarimboManager" type="Node" parent="." unique_id=147787215]
 script = ExtResource("9_0w4p8")
+
+[node name="StampEffectPosition" type="Marker2D" parent="." unique_id=189916298]
+position = Vector2(40, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891040647]
 shape = SubResource("RectangleShape2D_7wueq")
@@ -134,17 +74,8 @@ script = ExtResource("4_oomub")
 [node name="JumpState" type="Node" parent="StateMachine" unique_id=1293434487]
 script = ExtResource("6_8y416")
 
-[node name="CarimboCollision" type="Area2D" parent="." unique_id=2110684418]
-position = Vector2(41, -19)
-script = ExtResource("7_7860b")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarimboCollision" unique_id=360715796]
-position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_8y416")
-disabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1580855117]
-libraries/ = SubResource("AnimationLibrary_0w4p8")
+[node name="UseStampState" type="Node" parent="StateMachine" unique_id=1613025079]
+script = ExtResource("8_ypltb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56109255]
 
@@ -251,13 +182,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI" unique_id=1589537655]
-custom_minimum_size = Vector2(100, 36)
+custom_minimum_size = Vector2(80, 30)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -35.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -268,33 +203,33 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer" unique_id=724357023]
+[node name="CarimbosUI" type="HBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer" unique_id=724357023]
 layout_mode = 2
 alignment = 1
+script = ExtResource("12_c4rn8")
 
-[node name="Slot1" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer" unique_id=834069672]
+[node name="equipped_slot" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=834069672]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("14_nmlhc")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1" unique_id=1375879916]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot" unique_id=1375879916]
 layout_mode = 2
-texture = ExtResource("1_7wueq")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1" unique_id=211317157]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot" unique_id=211317157]
 layout_mode = 2
 
-[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1/VBoxContainer" unique_id=753046182]
+[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot/VBoxContainer" unique_id=753046182]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 4
-text = "Pulo Duplo"
 horizontal_alignment = 2
 
-[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot1/VBoxContainer" unique_id=1904031059]
+[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot/VBoxContainer" unique_id=1904031059]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("8_xx81n")
@@ -302,67 +237,60 @@ theme_override_font_sizes/font_size = 4
 text = "1"
 horizontal_alignment = 1
 
-[node name="Slot2" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer" unique_id=75537636]
-modulate = Color(1, 1, 1, 0.3137255)
+[node name="equipped_slot2" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=560905705]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("14_nmlhc")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2" unique_id=1089476920]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot2" unique_id=365449531]
 layout_mode = 2
-texture = ExtResource("1_7wueq")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2" unique_id=2121177653]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot2" unique_id=437762708]
 layout_mode = 2
 
-[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2/VBoxContainer" unique_id=1381637825]
+[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot2/VBoxContainer" unique_id=88311934]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 4
-text = "Pulo Duplo"
 horizontal_alignment = 2
 
-[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot2/VBoxContainer" unique_id=885266164]
+[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot2/VBoxContainer" unique_id=1213228550]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 4
-text = "1"
+text = "2"
 horizontal_alignment = 1
 
-[node name="Slot3" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer" unique_id=133028383]
-modulate = Color(1, 1, 1, 0.3137255)
+[node name="equipped_slot3" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=1060138432]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("14_nmlhc")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3" unique_id=1067223606]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot3" unique_id=1204547344]
 layout_mode = 2
-texture = ExtResource("1_7wueq")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3" unique_id=1598848620]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot3" unique_id=1801231197]
 layout_mode = 2
 
-[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3/VBoxContainer" unique_id=294539205]
+[node name="NomeCarimbo" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot3/VBoxContainer" unique_id=1302141211]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 4
-text = "Pulo Duplo"
 horizontal_alignment = 2
 
-[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/HBoxContainer/Slot3/VBoxContainer" unique_id=793620119]
+[node name="NumeroKey" type="Label" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI/equipped_slot3/VBoxContainer" unique_id=1743985555]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 4
-text = "1"
+text = "3"
 horizontal_alignment = 1
-
-[connection signal="body_entered" from="CarimboCollision" to="CarimboCollision" method="_on_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="CarimboCollision" method="_on_animation_player_animation_finished"]

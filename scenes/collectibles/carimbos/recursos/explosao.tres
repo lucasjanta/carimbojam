@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CarimboData" format=3 uid="uid://c1d0u5f24jl3a"]
+
+[ext_resource type="Texture2D" uid="uid://cragkqo3yyxot" path="res://assets/arma e carimbos/carimbo-dano.png" id="1_baqcs"]
+[ext_resource type="Script" uid="uid://bagnnx2hwje55" path="res://scripts/martelo e carimbo/carimboItem.gd" id="2_3ytaq"]
+
+[resource]
+script = ExtResource("2_3ytaq")
+name = "explosão"
+description = "explode ao acertar o chão ou um inimigo"
+icon = ExtResource("1_baqcs")
+metadata/_custom_type_script = "uid://bagnnx2hwje55"
