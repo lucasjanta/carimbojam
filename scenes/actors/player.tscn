@@ -12,7 +12,11 @@
 [ext_resource type="Script" uid="uid://law37gkjtiu2" path="res://scripts/martelo e carimbo/carimbo_manager.gd" id="9_0w4p8"]
 [ext_resource type="Script" uid="uid://ch1hy6qfltocf" path="res://scripts/UI/carimbos_container.gd" id="11_kggx2"]
 [ext_resource type="Script" uid="uid://b8dl4rrrivl36" path="res://scripts/UI/carimbos_ui.gd" id="12_c4rn8"]
+[ext_resource type="Texture2D" uid="uid://br82i63djphsm" path="res://assets/ui/life_bar/under.png" id="14_0878f"]
+[ext_resource type="Script" uid="uid://v3x5f31qu3nf" path="res://scripts/UI/stats_container.gd" id="14_dferu"]
 [ext_resource type="Script" uid="uid://djcsynxh0eig3" path="res://scripts/UI/equipped_slot.gd" id="14_nmlhc"]
+[ext_resource type="Texture2D" uid="uid://cj626uqptqwua" path="res://assets/ui/life_bar/over.png" id="15_dferu"]
+[ext_resource type="Texture2D" uid="uid://dyntac3m8baqy" path="res://assets/ui/life_bar/progress.png" id="16_t62v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wueq"]
 size = Vector2(24, 24)
@@ -45,13 +49,14 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D" unique_id=683210676 groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_oomub")
 
 [node name="CarimboManager" type="Node" parent="." unique_id=147787215]
 script = ExtResource("9_0w4p8")
 
 [node name="StampEffectPosition" type="Marker2D" parent="." unique_id=189916298]
-position = Vector2(40, 12)
+position = Vector2(40, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891040647]
 shape = SubResource("RectangleShape2D_7wueq")
@@ -80,6 +85,7 @@ script = ExtResource("8_ypltb")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56109255]
 
 [node name="Inventory" type="Control" parent="CanvasLayer" unique_id=355448811]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -173,13 +179,12 @@ text = "0s"
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=1017231628]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 220.0
-offset_top = 144.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI" unique_id=1589537655]
 custom_minimum_size = Vector2(80, 30)
@@ -238,6 +243,7 @@ text = "1"
 horizontal_alignment = 1
 
 [node name="equipped_slot2" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=560905705]
+self_modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -267,6 +273,7 @@ text = "2"
 horizontal_alignment = 1
 
 [node name="equipped_slot3" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=1060138432]
+self_modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -294,3 +301,46 @@ theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 4
 text = "3"
 horizontal_alignment = 1
+
+[node name="StatsContainer" type="PanelContainer" parent="CanvasLayer/UI" unique_id=145713039]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -35.0
+offset_right = 139.0
+offset_bottom = -5.0
+grow_vertical = 0
+script = ExtResource("14_dferu")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/StatsContainer" unique_id=1052067518]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/StatsContainer/MarginContainer" unique_id=1027065782]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer" unique_id=181325045]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer" unique_id=1453428809]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="LifeBar" type="TextureProgressBar" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1527173708]
+layout_mode = 2
+value = 61.0
+texture_under = ExtResource("14_0878f")
+texture_over = ExtResource("15_dferu")
+texture_progress = ExtResource("16_t62v4")
+tint_progress = Color(0.7764706, 0, 0, 0.70980394)
+
+[node name="BuffsContainer" type="HBoxContainer" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=116005200]
+layout_mode = 2
+size_flags_vertical = 3

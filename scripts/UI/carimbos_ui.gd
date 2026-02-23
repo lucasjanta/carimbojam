@@ -13,3 +13,7 @@ func populate_slots(equipped_slots : Array[CarimboData]):
 			carimbo_slots[i].description = equipped_slots[i].description
 			carimbo_slots[i].cooldown = equipped_slots[i].cooldown
 	
+func change_selected_slot(index):
+	for carimbo in carimbo_slots:
+		carimbo.self_modulate.a = 0.5
+	carimbo_slots[index].self_modulate.a = 1.0

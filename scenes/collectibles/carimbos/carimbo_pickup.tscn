@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bbdo26e00niwj" path="res://scripts/martelo e carimbo/carimbo_pickup.gd" id="1_2swpm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_imcj5"]
+radius = 12.0
 
 [sub_resource type="Animation" id="Animation_tryc6"]
 length = 0.001
@@ -43,9 +44,12 @@ _data = {
 }
 
 [node name="CarimboPickup" type="Area2D" unique_id=1606225206]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_2swpm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=913291306]
+scale = Vector2(0.85, 0.85)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037661611]
 shape = SubResource("CircleShape2D_imcj5")
