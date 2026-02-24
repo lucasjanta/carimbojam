@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fnxnc7qbhd0f" path="res://assets/arma e carimbos/damage_mark.png" id="2_mm5u1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_441sx"]
-radius = 30.066593
+radius = 34.058773
 
 [sub_resource type="Animation" id="Animation_rhrtk"]
 length = 0.001
@@ -89,9 +89,11 @@ script = ExtResource("1_8s3ve")
 texture = ExtResource("2_mm5u1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1192033404]
+position = Vector2(0, -40)
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1034337292]
+position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_441sx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=52132339]

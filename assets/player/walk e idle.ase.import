@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b8pit802rljx7"
+path="res://.godot/imported/walk e idle.ase-5b7fd6087d40dc1fa068a6f1c8d22141.res"
+
+[deps]
+
+source_file="res://assets/player/walk e idle.ase"
+dest_files=["res://.godot/imported/walk e idle.ase-5b7fd6087d40dc1fa068a6f1c8d22141.res"]
+
+[params]
+

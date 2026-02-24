@@ -27,4 +27,4 @@ func physics_update(delta):
 		state_machine.change_state(state_machine.get_node("IdleState"))
 		
 func update_animation():
-	animated_sprite_2d.play("jump")
+	animated_sprite_2d.play("JUMP")

@@ -4,59 +4,59 @@
 [ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="3_mhbn3"]
 [ext_resource type="Script" uid="uid://d3bbo3136ngqs" path="res://scripts/state_machine/state_machine.gd" id="3_qh3c7"]
 [ext_resource type="Script" uid="uid://b42xhjrbbt0kk" path="res://scripts/state_machine/grampeador_pequeno/idle_state.gd" id="4_h7jf8"]
+[ext_resource type="Script" uid="uid://coc3xvmpjjv8g" path="res://scripts/state_machine/grampeador_pequeno/follow_state.gd" id="5_h7jf8"]
+[ext_resource type="Script" uid="uid://braagpxx1tycv" path="res://scripts/state_machine/grampeador_pequeno/attack_state.gd" id="6_ol6c3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7jf8"]
+radius = 138.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ol6c3"]
+radius = 63.63961
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_msyt5"]
 radius = 17.029387
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_msyt5"]
-_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAMAAAACQAwAAUklGRogDAABXRUJQVlA4THsDAAAvv8AvEJ+goI0UaQaMYAj/WrjXhpoAIBjr2oLpfwiDgrZRoB3gAUX4F/TOfwAUAEqAiI8LqW3KRL3XEN9HyILAN48XJICrTT0FviVJsiRJsq2KTKooyasmi/D//6yqqXmIhVtduyOi/xPgD/9/iBiw4b4hBBK3jFlCioAbhtAyAu4YSEiKP1jerE+gOeI3lnkVwAaeDKBlBMvMrIsgAYj5WQBaR7wCZGZVcQmQhCQhKXgKoEOWmVlVgJsDfEKbEQHPALRmmZlZBeDOzNqNmeX7h9YAL3zOrCrAvdFuzBznZQBsgC4Atk0V4PZbwXFmZlUfzgoBCPF2SL+D1wDuzwHbWTO0AXQSLZF4O8AXZ/eFz5k1M7svaDv238yA3wFvUsXSrTkRvLLdgXfFgPvzts+BnWsuPMML5H4Pnh2zj6G2acL14F056bcHSTy+iyQe3gEk8fgO2gwya5voYXQc1Emix9gmazsbIWn8DPYjcCckjWA/Arf48m2MIaQxxuCsOyIJI32X4qy7IgkjfVfsg3siSZjx9esY49cPbeKegG0e6b6Abc67LYBtHugP/3/cFsAGeEqADfTirBCAED1YvxdIAGJuA+gkWiLRAdAM7wFIQpKQFPTRduw30SFwIYBPaDMioAsngle2G7AjCbgAs3ZjZtnnLXssYyGJdSO0GzPH2cozvEDuN2C2DUTEtAQuERxnZlY1YfYx1DYdJIFnIJYSCKAHB2xnzXCRk35zhmYms3wlIjRDk80XPmfWzOymIInHN/i2EHh+4TAiBKKJN6li6caMbbK2s4NhIQG2ITNZRugCBtydL9/GGEIaYwzOuiWzZuaqykzmiC7sXBJJwoyvX8cYv35oEzdmCqoKqKrMZH4KBrDNA32BzKwqoKoyE3eBa72TICmAzKwqoKraSOLhT8QG/YoIIDOrCnBPdBzUSeK52IAUEUBmVjMkjWA/Aj9fkBQRANHFSMJI3xX74KcMSIoIcFvANuf9vFn6w/8f/v9vdeY7B0iC28ZKAm4ZG5KA28X6QBLr2wSSWEbEtARu0xiSsG0glhII4CZpBtssX4kIzXCHzJgk5hcOI0Ig7pBhTJKYM5NlhG6SzSxJAVRVZjJH3KUli0ygqjKT+U4ZSQFkAlWVmfheg35FBJAJVNXdsgEpIoBM4H7ZBkkRARC3zAYkRQT4trP0X9MA")
-size_override = Vector2(192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhbn3"]
-atlas = SubResource("PortableCompressedTexture2D_msyt5")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qh3c7"]
-atlas = SubResource("PortableCompressedTexture2D_msyt5")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7jf8"]
-atlas = SubResource("PortableCompressedTexture2D_msyt5")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ol6c3"]
-atlas = SubResource("PortableCompressedTexture2D_msyt5")
-region = Rect2(128, 64, 64, 64)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ol6c3"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAACeAgAAUklGRpYCAABXRUJQVlA4TIkCAAAvv8AfEJ+goI0UaQaMYAj/WrjXhpoAIBjr2oLpfwiDgrZRoB3gAUX4F/TOfwAUAEqAiI8LqW3KRL3XEN9HyILAN48XJICrTT0FtCRJsiRFNBhD8Cw8wu9/2czKaqImW3a/JqL/E+CPMQM2vG4IgcRLxighRcA9ABvYFELTCLgJEoAY9wMSkuIb0xuAJCQJScFePoPGiE9MsxfAZ7QYEXAXABugE6BpBNPMrC5MtRoj0y5cFQIQogugecQbQGZWFU3QcoycZxdAF9EUiRagU6aZWVWAm64F55mZVX20HOsdQHOmmZlVAO7KGctZIzThQvDG8r9Dc4AHXzKrCnBjlh98yayR0V35t10AbJsqwL0HL1LF1J0nHuEBud4B6St4DuD2Fwy4O6PPoZZpAfjeACt3vHbRDQHvDSTx/Ca8A9zqWCZrOfch8fwO338exyFJx3EcXHUX7mV0HtRFooORJOD48eM4jr+/tYj78F4cwXoEbglgmye6KUji+S2MJED6pVgHbxEtBpm1TDQxYJvr3uTK8SdYj8AvMZIA6ZcUV/0iA7Z5pj/8/+H//0+Zv26ARng3AGxgHzoF7sJFCUDAHliRBNwA0FUkCYldTGMiiXkvLcfyFhhtGyJimAJ9ACYxfWN5C5LAIxBTCQTQ6HrOd8ChETwyvhERGqEFU095QI4138LPiQS2/eA0IgSih8RyjZxuwDCTwDZkJtMItQCtDkkmmWRuwgYYJMaqykzGiBbHsaJgOWITIwxBVQFVlZmMDcwEQJJiURF4oyeZWVVAVWUmbslo21z3VkFSAJlZVUBVNXkdQX8jAsjMqgL8agNSRACZWS+YbZAUEQDxktmApIgAv+xM/eH//ygBAA==")
+size_override = Vector2(192, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yt4e"]
-atlas = SubResource("PortableCompressedTexture2D_msyt5")
-region = Rect2(0, 128, 64, 64)
+atlas = SubResource("PortableCompressedTexture2D_ol6c3")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3dsb"]
-atlas = SubResource("PortableCompressedTexture2D_msyt5")
+atlas = SubResource("PortableCompressedTexture2D_ol6c3")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wodqf"]
-atlas = SubResource("PortableCompressedTexture2D_msyt5")
+atlas = SubResource("PortableCompressedTexture2D_ol6c3")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_rr651"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr651"]
+atlas = SubResource("PortableCompressedTexture2D_ol6c3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvs5v"]
+atlas = SubResource("PortableCompressedTexture2D_ol6c3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4tl3"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mhbn3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qh3c7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h7jf8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ol6c3")
-}, {
-"duration": 1.0,
+"duration": 1.2,
 "texture": SubResource("AtlasTexture_3yt4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3dsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wodqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr651")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvs5v")
 }],
 "loop": true,
 "name": &"follow",
@@ -64,17 +64,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mhbn3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k3dsb")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_wodqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr651")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvs5v")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_qh3c7"]
@@ -139,23 +139,33 @@ _data = {
 &"hit": SubResource("Animation_h7jf8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh3c7"]
-size = Vector2(208, 20)
-
 [node name="pequeno_grampeador" type="CharacterBody2D" unique_id=1708798305]
 collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_msyt5")
 max_hp = 50.0
 
+[node name="DetectionArea" type="Area2D" parent="." unique_id=2106432831]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=674987664]
+shape = SubResource("CircleShape2D_h7jf8")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1976385294]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=37025731]
+shape = SubResource("CircleShape2D_ol6c3")
+debug_color = Color(0.75601757, 0.4555068, 1.1551381e-06, 0.41960785)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=529575237]
 shape = SubResource("CircleShape2D_msyt5")
+debug_color = Color(0.9857722, 0, 0.33509102, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1477044471]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_rr651")
+sprite_frames = SubResource("SpriteFrames_b4tl3")
 animation = &"follow"
-frame_progress = 0.43173543
-offset = Vector2(0, -20)
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "pending_changes": {},
@@ -174,7 +184,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/enemies/gramp.ase",
 "source_uid": 1062397621041440185
 }
-metadata/_aseprite_wizard_source_file_hash_ = "de9cb696782451a851ce7306413a51b7"
+metadata/_aseprite_wizard_source_file_hash_ = "8c226a2f6755111ad3a3e5c7d47f6541"
 
 [node name="DamageLabel" type="Label" parent="." unique_id=2058172995]
 modulate = Color(1, 1, 1, 0)
@@ -204,7 +214,13 @@ initial_state_path = NodePath("IdleState")
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=903958587]
 script = ExtResource("4_h7jf8")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2106432831]
+[node name="FollowState" type="Node" parent="StateMachine" unique_id=1211182332]
+script = ExtResource("5_h7jf8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=674987664]
-shape = SubResource("RectangleShape2D_qh3c7")
+[node name="AttackState" type="Node" parent="StateMachine" unique_id=167413721]
+script = ExtResource("6_ol6c3")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

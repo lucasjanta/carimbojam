@@ -27,4 +27,4 @@ func update_animation():
 		animated_sprite_2d.flip_h = true
 		stamp_effect_position.position.x = -40
 	
-	animated_sprite_2d.play("idle")
+	animated_sprite_2d.play("IDLE")
