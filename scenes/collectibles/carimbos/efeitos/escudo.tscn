@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://cdua4r0tnsa3s"]
+
+[ext_resource type="Texture2D" uid="uid://cv0p5x1cccjpk" path="res://assets/arma e carimbos/shield_mark.png" id="1_wpthm"]
+[ext_resource type="Script" uid="uid://blyjgfpb3gn2y" path="res://scenes/collectibles/carimbos/efeitos/escudo.gd" id="1_wq5t8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wq5t8"]
+radius = 39.115215
+
+[sub_resource type="Animation" id="Animation_wq5t8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hhede"]
+resource_name = "stamp_anim"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wstgq"]
+_data = {
+&"RESET": SubResource("Animation_wq5t8"),
+&"stamp_anim": SubResource("Animation_hhede")
+}
+
+[node name="escudo" type="Node2D" unique_id=475499988]
+script = ExtResource("1_wq5t8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=372204780]
+texture = ExtResource("1_wpthm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2071472877]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1765060683]
+shape = SubResource("CircleShape2D_wq5t8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1088001953]
+libraries/ = SubResource("AnimationLibrary_wstgq")
+autoplay = &"stamp_anim"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

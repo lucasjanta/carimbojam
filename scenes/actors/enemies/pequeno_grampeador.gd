@@ -3,22 +3,25 @@ class_name Enemy
 @onready var dmg_anim: AnimationPlayer = $DmgAnim
 @onready var damage_label: Label = $DamageLabel
 
-
 @export var follow_speed := 80.0
 @export var attack_speed := 250.0
+@export var dash_distance := 200.0
 @export var max_hp := 100.0
+@export var base_dmg := 20.0
 
 var hp := 0.0
 var knockback_velocity := Vector2.ZERO
 var player_ref : CharacterBody2D = null
 var can_attack := false
+var cooldown := 0.0
+var attack_cd := 2.5
 
 func _ready() -> void:
 	hp = max_hp
 
 func _physics_process(delta: float) -> void:
-	#if !is_on_floor():
-		#velocity.y += 900 * delta
+	if cooldown > 0.0:
+		cooldown -= delta
 	if knockback_velocity > Vector2.ZERO:
 		velocity = knockback_velocity
 		knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, 1000 * delta)
@@ -56,3 +59,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		can_attack = false
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.name == "PlayerHurtbox":
+		area.get_parent().take_damage(base_dmg)

@@ -136,6 +136,12 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t62v4"]
+radius = 17.029387
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dferu"]
+size = Vector2(20, 46)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dferu"]
 content_margin_left = 0.0
 content_margin_top = 0.0
@@ -159,9 +165,6 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_t62v4"]
-radius = 17.029387
 
 [node name="player" type="CharacterBody2D" unique_id=683210676 groups=["player"]]
 collision_layer = 2
@@ -218,6 +221,20 @@ script = ExtResource("8_ypltb")
 
 [node name="BasicAttackState" type="Node" parent="StateMachine" unique_id=579158539]
 script = ExtResource("8_dferu")
+
+[node name="BasicAttackArea" type="Area2D" parent="." unique_id=92623693]
+position = Vector2(31, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicAttackArea" unique_id=238764513]
+shape = SubResource("CircleShape2D_t62v4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1498441049]
+
+[node name="PlayerHurtbox" type="Area2D" parent="." unique_id=915931653]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox" unique_id=1851676570]
+shape = SubResource("RectangleShape2D_dferu")
+debug_color = Color(0.19271171, 0.6135809, 0.53717154, 0.41960785)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56109255]
 
@@ -479,11 +496,3 @@ tint_progress = Color(0.7764706, 0, 0, 0.70980394)
 [node name="BuffsContainer" type="HBoxContainer" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=116005200]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="BasicAttackArea" type="Area2D" parent="." unique_id=92623693]
-position = Vector2(31, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicAttackArea" unique_id=238764513]
-shape = SubResource("CircleShape2D_t62v4")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1498441049]

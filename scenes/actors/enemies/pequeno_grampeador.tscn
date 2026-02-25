@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://braagpxx1tycv" path="res://scripts/state_machine/grampeador_pequeno/attack_state.gd" id="6_ol6c3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7jf8"]
-radius = 138.0
+radius = 320.00156
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ol6c3"]
-radius = 63.63961
+radius = 93.0215
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_msyt5"]
 radius = 17.029387
@@ -139,6 +139,9 @@ _data = {
 &"hit": SubResource("Animation_h7jf8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yt4e"]
+radius = 13.0
+
 [node name="pequeno_grampeador" type="CharacterBody2D" unique_id=1708798305]
 collision_layer = 4
 collision_mask = 0
@@ -220,7 +223,14 @@ script = ExtResource("5_h7jf8")
 [node name="AttackState" type="Node" parent="StateMachine" unique_id=167413721]
 script = ExtResource("6_ol6c3")
 
+[node name="Hitbox" type="Area2D" parent="." unique_id=921526291]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=752822805]
+shape = SubResource("CircleShape2D_3yt4e")
+disabled = true
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

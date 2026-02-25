@@ -1,9 +1,5 @@
 extends Node2D
 
-#func _ready() -> void:
-	#get_parent().
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		body.take_damage(10)

@@ -11,13 +11,18 @@ func enter():
 func physics_update(delta):
 	update_animation()
 	if player.player_ref != null:
-		var direction = (player.player_ref.global_position - player.global_position).normalized()
-		player.velocity = direction * player.follow_speed
-		player.rotation = direction.angle()
+		if player.player_ref.global_position.distance_to(player.global_position) > 90.0:
+			var direction = (player.player_ref.global_position - player.global_position).normalized()
+			player.velocity = direction * player.follow_speed
+			player.rotation = direction.angle()
+		else:
+			var direction = (player.player_ref.global_position - player.global_position).normalized()
+			player.velocity = Vector2.ZERO
+			player.rotation = direction.angle()
 	else:
 		state_machine.change_state(state_machine.get_node("IdleState"))
 	
-	if player.can_attack:
+	if player.can_attack and player.cooldown <= 0.0:
 		state_machine.change_state(state_machine.get_node("AttackState"))
 		
 func update_animation():
