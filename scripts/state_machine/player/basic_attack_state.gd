@@ -19,4 +19,4 @@ func update_animation():
 		animated_sprite_2d.flip_h = false
 	elif dir < 0:
 		animated_sprite_2d.flip_h = true
-	animated_sprite_2d.play("IDLE")
+	animated_sprite_2d.play("basick_attack")

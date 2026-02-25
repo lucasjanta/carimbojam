@@ -12,6 +12,7 @@ func populate_slots(equipped_slots : Array[CarimboData]):
 			carimbo_slots[i].nome_carimbo.text = equipped_slots[i].name
 			carimbo_slots[i].description = equipped_slots[i].description
 			carimbo_slots[i].cooldown = equipped_slots[i].cooldown
+			carimbo_slots[i].progress_bar.max_value = equipped_slots[i].cooldown
 	
 func change_selected_slot(index):
 	for carimbo in carimbo_slots:

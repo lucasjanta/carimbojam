@@ -68,6 +68,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			selected_stamp = 2
 		carimbo_manager.current_slot = selected_stamp
 		carimbos_selecionados.change_selected_slot(selected_stamp)
-	
-	if event.is_action_pressed("use_stamp"):
-		carimbo_manager.use_current_stamp()
+	#
+	#if event.is_action_pressed("use_stamp"):
+		#carimbo_manager.use_current_stamp()

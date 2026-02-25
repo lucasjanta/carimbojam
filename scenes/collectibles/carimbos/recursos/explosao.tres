@@ -9,5 +9,6 @@ script = ExtResource("2_3ytaq")
 name = "explosão"
 description = "explode ao acertar o chão ou um inimigo"
 icon = ExtResource("1_baqcs")
+cooldown = 2.0
 effect_scene = ExtResource("1_3ytaq")
 metadata/_custom_type_script = "uid://bagnnx2hwje55"

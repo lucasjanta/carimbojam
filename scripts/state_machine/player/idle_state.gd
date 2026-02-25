@@ -18,6 +18,9 @@ func physics_update(delta):
 	if Input.is_action_just_pressed("jump"):
 		$"../JumpState".dir = dir
 		state_machine.change_state(state_machine.get_node("JumpState"))
+	if Input.is_action_just_pressed("use_stamp"):
+		$"../UseStampState".dir = dir
+		state_machine.change_state(state_machine.get_node("UseStampState"))
 	
 func update_animation():
 	if dir > 0:
@@ -27,4 +30,4 @@ func update_animation():
 		animated_sprite_2d.flip_h = true
 		stamp_effect_position.position.x = -40
 	
-	animated_sprite_2d.play("IDLE")
+	animated_sprite_2d.play("idle")

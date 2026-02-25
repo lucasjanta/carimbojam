@@ -25,6 +25,9 @@ func physics_update(delta):
 	if player.is_on_floor():
 		$"../IdleState".dir = dir
 		state_machine.change_state(state_machine.get_node("IdleState"))
-		
+	if Input.is_action_just_pressed("use_stamp"):
+		$"../UseStampState".dir = dir
+		state_machine.change_state(state_machine.get_node("UseStampState"))
+	
 func update_animation():
-	animated_sprite_2d.play("JUMP")
+	animated_sprite_2d.play("idle")
