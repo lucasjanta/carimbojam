@@ -139,9 +139,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6a6mx")
 }],
-"loop": true,
-"name": &"basick_attack",
-"speed": 10.0
+"loop": false,
+"name": &"basic_attack",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -167,7 +167,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"heavy_attack",
-"speed": 14.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,8 +216,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t62v4"]
-radius = 17.029387
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t62v4"]
+size = Vector2(33, 24)
 
 [sub_resource type="Animation" id="Animation_t62v4"]
 length = 0.001
@@ -245,11 +245,78 @@ tracks/1/keys = {
 "update": 1,
 "values": [6]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasicAttackArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_uqfkb"]
+resource_name = "basic_attack"
+length = 0.4
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"basic_attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasicAttackArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15384616, 0.3846154),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/BasicAttackState")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3846154),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dferu"]
 resource_name = "heavy_atk"
-length = 0.7
-step = 0.1
+length = 0.42
+step = 0.06
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -269,7 +336,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.05882353, 0.11764706, 0.1764706, 0.23529412, 0.29411766, 0.3529412),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -281,7 +348,7 @@ tracks/2/path = NodePath("StateMachine/UseStampState")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 0.7),
+"times": PackedFloat32Array(0.29411766, 0.42),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -295,6 +362,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t62v4"]
 _data = {
 &"RESET": SubResource("Animation_t62v4"),
+&"basic_attack": SubResource("Animation_uqfkb"),
 &"heavy_atk": SubResource("Animation_dferu")
 }
 
@@ -410,7 +478,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/player/CHAR.ase",
 "source_uid": 8903413965702436953
 }
-metadata/_aseprite_wizard_source_file_hash_ = "29e0c3145fc046043ec77492886fc415"
+metadata/_aseprite_wizard_source_file_hash_ = "4655e7c5f40c6fafd85f17ec3b3bf45f"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1966523323]
 script = ExtResource("1_15tap")
@@ -432,10 +500,11 @@ script = ExtResource("8_ypltb")
 script = ExtResource("8_dferu")
 
 [node name="BasicAttackArea" type="Area2D" parent="." unique_id=92623693]
-position = Vector2(31, 0)
+position = Vector2(27, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasicAttackArea" unique_id=238764513]
-shape = SubResource("CircleShape2D_t62v4")
+shape = SubResource("RectangleShape2D_t62v4")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1498441049]
 libraries/ = SubResource("AnimationLibrary_t62v4")

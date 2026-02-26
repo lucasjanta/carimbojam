@@ -13,9 +13,9 @@ func enter():
 func physics_update(delta):
 	dir = Input.get_axis("left", "right")
 	player.velocity.x = dir * player.speed
-	if Input.is_action_just_pressed("jump") and !jumping:
-		$"../JumpState".dir = dir
-		state_machine.change_state(state_machine.get_node("JumpState"))
+	#if Input.is_action_just_pressed("jump") and !jumping:
+		#player.velocity.y += player.jump_force
+		#jumping = true
 		
 func update_animation():
 	if dir > 0:
