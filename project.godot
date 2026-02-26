@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="carimbojam"
-run/main_scene="uid://cv1t4ii7ubypi"
+run/main_scene="uid://b1qd22tnwq0bi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
+AudioManager="*uid://cb84lqo0hsdal"
 
 [display]
 

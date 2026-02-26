@@ -1,6 +1,5 @@
 extends CharacterBody2D
 class_name Player
-@onready var state_label: Label = $"../CanvasLayer2/stateLabel"
 
 @onready var carimbo_manager: Node = $CarimboManager
 @onready var inventory: Control = $CanvasLayer/Inventory
@@ -33,8 +32,7 @@ func take_damage(damage):
 		print("player is dead")
 
 func _physics_process(delta: float) -> void:
-	state_label.text = state_machine.current_state.name
-	# Adiciona gravidade
+
 	if not is_on_floor():
 		velocity.y += gravity_force * delta
 

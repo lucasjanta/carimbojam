@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cb84lqo0hsdal"]
+
+[ext_resource type="Script" uid="uid://btcjw0keri5u" path="res://scripts/systems/audio_manager.gd" id="1_8qd8g"]
+
+[node name="AudioManager" type="Node2D" unique_id=2140261002]
+script = ExtResource("1_8qd8g")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1586566090]
+
+[node name="Level1Music" type="AudioStreamPlayer" parent="." unique_id=1170711269]
+
+[node name="Level2Music" type="AudioStreamPlayer" parent="." unique_id=547372612]
+
+[node name="Level3Music" type="AudioStreamPlayer" parent="." unique_id=782383805]
