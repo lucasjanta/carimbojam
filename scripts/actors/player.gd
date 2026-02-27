@@ -72,14 +72,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		selected_stamp = 0
 		carimbo_manager.current_slot = selected_stamp
 		carimbos_selecionados.change_selected_slot(selected_stamp)
+		Input.action_press("use_stamp")
+		Input.action_release("use_stamp")
 	if event.is_action_pressed("slot_2"):
 		selected_stamp = 1
 		carimbo_manager.current_slot = selected_stamp
 		carimbos_selecionados.change_selected_slot(selected_stamp)
+		Input.action_press("use_stamp")
+		Input.action_release("use_stamp")
 	if event.is_action_pressed("slot_3"):
 		selected_stamp = 2
 		carimbo_manager.current_slot = selected_stamp
 		carimbos_selecionados.change_selected_slot(selected_stamp)
+		Input.action_press("use_stamp")
+		Input.action_release("use_stamp")
 	
 	if event.is_action_pressed("pause"):
 		pause_menu.visible = true

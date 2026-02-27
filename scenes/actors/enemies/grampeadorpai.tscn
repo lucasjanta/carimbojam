@@ -1,0 +1,183 @@
+[gd_scene format=4 uid="uid://m834c5mg4bd2"]
+
+[ext_resource type="Script" uid="uid://d3bbo3136ngqs" path="res://scripts/state_machine/state_machine.gd" id="1_h8hs5"]
+[ext_resource type="Script" uid="uid://dbcuwc1x43qfy" path="res://scenes/actors/enemies/grampeadorpai.gd" id="1_rdejh"]
+[ext_resource type="Script" uid="uid://b1i2a8a28sikb" path="res://scripts/state_machine/grampeador_pai/idle_state.gd" id="2_bl4eh"]
+[ext_resource type="Script" uid="uid://cvf6ts8j8lvm4" path="res://scripts/state_machine/grampeador_pai/walk_state.gd" id="4_g25ja"]
+[ext_resource type="Script" uid="uid://c5aibady4cprf" path="res://scripts/state_machine/grampeador_pai/attack_state.gd" id="5_s8dh0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7paf"]
+radius = 13.0
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_h8hs5"]
+_data = PackedByteArray("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")
+size_override = Vector2(256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl4eh"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdejh"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g25ja"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8dh0"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf52b"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qdqr"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34wod"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsymg"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6tj6"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khqtk"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1hfo"]
+atlas = SubResource("PortableCompressedTexture2D_h8hs5")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_av6b8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl4eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdejh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g25ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8dh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf52b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qdqr")
+}],
+"loop": false,
+"name": &"atack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34wod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsymg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34wod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsymg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6tj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khqtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1hfo")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bl4eh"]
+size = Vector2(144, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdejh"]
+size = Vector2(24, 28)
+
+[node name="grampeadorpai" type="CharacterBody2D" unique_id=1957967587]
+collision_layer = 2
+script = ExtResource("1_rdejh")
+speed = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905313130]
+shape = SubResource("CircleShape2D_p7paf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=903675379]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_av6b8")
+animation = &"atack"
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/enemies/carimbopae.ase",
+"source_uid": 695230098308029289
+}
+metadata/_aseprite_wizard_source_file_hash_ = "1329dd9cd6644c96b3ac9a741b6661dd"
+
+[node name="StateMachine" type="Node" parent="." unique_id=198643182]
+script = ExtResource("1_h8hs5")
+initial_state_path = NodePath("WalkState")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1826146227]
+script = ExtResource("2_bl4eh")
+
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=1681964685]
+script = ExtResource("4_g25ja")
+
+[node name="AttackState" type="Node" parent="StateMachine" unique_id=1669582138]
+script = ExtResource("5_s8dh0")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1551424700]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1768187715]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_bl4eh")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=924323895]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1817399534]
+shape = SubResource("RectangleShape2D_rdejh")
+disabled = true
+debug_color = Color(0.9829604, 0, 0.36170894, 0.41960785)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/AttackState" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
