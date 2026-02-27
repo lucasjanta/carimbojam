@@ -1,0 +1,227 @@
+[gd_scene format=4 uid="uid://2crippebaax0"]
+
+[ext_resource type="Script" uid="uid://dxug6ahspwvay" path="res://scenes/props/contrato.gd" id="1_7nrgb"]
+[ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="2_e7nos"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4q8p0"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_e7nos"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAABoAQAAUklGRmABAABXRUJQVlA4TFMBAAAvP8APEDdAJEDC/3WYrW5wC1mAyXQmnVBnKgGoaRuJOf60brxvcOow/wEA2L6dnCTtFsBuZCuuhMjAkIDtDEYs37OQwZMjQLr5x2Dfe89htu+I/jtwG0mRqhaOzwOvCL+i+6kb6aRN92Cd+1vRzRE6ba5mQjrTy3E4Tpwfc5hhXk3u9oWYHoFzpiK6d6ATMe7nwGljGMQw7XPvHc6ZpohM99tl5R3odIbRwbcXZh04gWOMUfGs+45aSoVO4HiCnWsXzpHjykWHdYrMZx6IC7OOrvN9cCH3yWbLOsNpGwgnLHb+X91P3Ug70qZ7MA6z9Lo50o6rrTnSq5Rf6zDTcDW523mHt7E4RyqiyzgQM0fWYZi0IxVvmKRjishUs4Qd3/hO19/GjsVZB84xRsUO31lLwQ7gpBw/cMkROzznmkNkPvPEOeC6/5Bj32wj6QinbcAOqgEA")
+size_override = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1goru"]
+atlas = SubResource("PortableCompressedTexture2D_e7nos")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgrfq"]
+atlas = SubResource("PortableCompressedTexture2D_e7nos")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm7a6"]
+atlas = SubResource("PortableCompressedTexture2D_e7nos")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vol1q"]
+atlas = SubResource("PortableCompressedTexture2D_e7nos")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yr3jj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1goru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgrfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm7a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm7a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vol1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_1goru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e7nos"]
+resource_name = "aprovado"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.141592653589793, 6.283185307179586]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(15, -20), Vector2(25, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1goru"]
+_data = {
+&"RESET": SubResource("Animation_1goru"),
+&"aprovado": SubResource("Animation_e7nos")
+}
+
+[node name="contrato" type="Area2D" unique_id=1976842376]
+script = ExtResource("1_7nrgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=454400695]
+shape = SubResource("CircleShape2D_4q8p0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1729686582]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_yr3jj")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/props/contrato.aseprite",
+"source_uid": 4848746766531496619
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e1c5d2978d8a1e4899d9d14f7c984500"
+
+[node name="Label" type="Label" parent="." unique_id=1830930815]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.5
+offset_top = -10.0
+offset_right = 40.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(40.5, 10)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_e7nos")
+text = "APROVADO!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=982551763]
+libraries/ = SubResource("AnimationLibrary_1goru")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

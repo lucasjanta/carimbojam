@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://csdew2ofpn38x"]
+[gd_scene format=4 uid="uid://csdew2ofpn38x"]
 
 [ext_resource type="Script" uid="uid://1kjlmh5sdjk1" path="res://scenes/collectibles/carimbos/efeitos/explosao.gd" id="1_8s3ve"]
-[ext_resource type="Texture2D" uid="uid://fnxnc7qbhd0f" path="res://assets/arma e carimbos/damage_mark.png" id="2_mm5u1"]
 [ext_resource type="AudioStream" uid="uid://ddl4na85572hp" path="res://assets/SFX/explosion_8bit.wav" id="3_rhrtk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_441sx"]
@@ -12,22 +11,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/path = NodePath("carimbo/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -41,34 +28,22 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/path = NodePath("carimbo/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -83,17 +58,54 @@ _data = {
 &"stamp_anim": SubResource("Animation_mm5u1")
 }
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_rhrtk"]
+_data = PackedByteArray("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")
+size_override = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5p5x"]
+atlas = SubResource("PortableCompressedTexture2D_rhrtk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nba1a"]
+atlas = SubResource("PortableCompressedTexture2D_rhrtk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w0lo"]
+atlas = SubResource("PortableCompressedTexture2D_rhrtk")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkwdj"]
+atlas = SubResource("PortableCompressedTexture2D_rhrtk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3rmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5p5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nba1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w0lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkwdj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}]
+
 [node name="explosao" type="Node2D" unique_id=428036760]
 script = ExtResource("1_8s3ve")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1530065522]
-texture = ExtResource("2_mm5u1")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1192033404]
+[node name="carimbo" type="Area2D" parent="." unique_id=1192033404]
 position = Vector2(0, -40)
 collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1034337292]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="carimbo" unique_id=1034337292]
 position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_441sx")
 
@@ -105,4 +117,28 @@ autoplay = &"stamp_anim"
 stream = ExtResource("3_rhrtk")
 autoplay = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1811795717]
+texture_filter = 1
+position = Vector2(0, -29)
+sprite_frames = SubResource("SpriteFrames_r3rmj")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/arma e carimbos/carimbo - efeitos.aseprite",
+"source_uid": 7949069320234443842
+}
+metadata/_aseprite_wizard_source_file_hash_ = "4ad7ab6f41ad019b7810c71c7cf8deef"
+
+[connection signal="body_entered" from="carimbo" to="." method="_on_area_2d_body_entered"]

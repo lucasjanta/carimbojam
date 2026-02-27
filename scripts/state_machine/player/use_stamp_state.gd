@@ -20,10 +20,10 @@ func physics_update(delta):
 func update_animation():
 	if dir > 0:
 		animated_sprite_2d.flip_h = false
-		stamp_effect_position.position.x = 40
+		stamp_effect_position.position.x = 30
 	elif dir < 0:
 		animated_sprite_2d.flip_h = true
-		stamp_effect_position.position.x = -40
+		stamp_effect_position.position.x = -30
 	animation_player.play("heavy_atk")
 
 func use_stamp():

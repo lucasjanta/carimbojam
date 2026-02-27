@@ -37,4 +37,4 @@ func physics_update(delta):
 		state_machine.change_state(state_machine.get_node("BasicAttackState"))
 	
 func update_animation():
-	animated_sprite_2d.play("idle")
+	animated_sprite_2d.play("jump")

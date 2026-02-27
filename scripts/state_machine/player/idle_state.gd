@@ -12,6 +12,7 @@ func enter():
 	update_animation()
 	
 func physics_update(delta):
+	player.velocity.x = 0
 	dir = Input.get_axis("left", "right")
 	if dir != 0:
 		last_dir = dir

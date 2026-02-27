@@ -1,0 +1,137 @@
+[gd_scene format=4 uid="uid://v0r5yrcjp3c5"]
+
+[ext_resource type="Script" uid="uid://dr5g4f41igf5f" path="res://scenes/collectibles/carimbos/efeitos/dash.gd" id="1_sk1l5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ehhuq"]
+radius = 34.0
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ehhuq"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAIAAAADOAQAAUklGRsYBAABXRUJQVlA4TLkBAAAvf8AfEB8gJCD88r954pBAgBAm3hmxYIp3x9L8B9BedJDkbHvcNt8PmknaGqAX0rpXIGB0J4N0h70HuXOrK/QAGa7TYxDwATq312AH7WRwxw9/s8sqov8TgLu6Rssvl0rwMDrLZadloPWxUzIlQDcXp5QMtLNX8uiUuuSUcjFKqUDdK2VkpQnJ6ATA6RiTgk4y2ekUV6D0qRiV5EIKKtkFV3RM12Wdv1NOKmk5HZ0K8MkUIjOTcYGgC8KcyEzABN2uy4bIDEpGfcqeSJMnkMGAPWbvKVOX4MEk4pi9r3NUyh71c7Amw9fx5u9cCX/nuN3+79zo/PdpGK0ODlda/fCIWTD5xUrrMCjFH7+YDTWOlBC4ORkiyowYilL6dWOrZjGKrcvjIISI1F2eXqC6ibImhtLW9VHWsa6/sXWbKEJ8HoRab+rSC1cXozwj8CNQsSf+/SIgaIhpNFUAZgvi5oT6Fn1DDKEuHtBLXfrl6nAQagTZy8bWfVhRNrZ1bx2zaZnv50xso63rLbeRug21sT2IFdNLQ8TAHKQl8JCCZRoqCuOZHtob0YpWzyrBNlqzzS1bQHumJmp3mQEA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk1l5"]
+atlas = SubResource("PortableCompressedTexture2D_ehhuq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnf6v"]
+atlas = SubResource("PortableCompressedTexture2D_ehhuq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmile"]
+atlas = SubResource("PortableCompressedTexture2D_ehhuq")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr3d4"]
+atlas = SubResource("PortableCompressedTexture2D_ehhuq")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c6v2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk1l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnf6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmile")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr3d4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_ehhuq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sk1l5"]
+resource_name = "stamp_anim"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnf6v"]
+_data = {
+&"RESET": SubResource("Animation_ehhuq"),
+&"stamp_anim": SubResource("Animation_sk1l5")
+}
+
+[node name="dash" type="Node2D" unique_id=1145417599]
+script = ExtResource("1_sk1l5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=840591104]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1467367898]
+shape = SubResource("CircleShape2D_ehhuq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=82335755]
+texture_filter = 1
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_1c6v2")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/arma e carimbos/carimbo - efeitos.aseprite",
+"source_uid": 7949069320234443842
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0835a62d02f89f397dc53103f0a491e1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1758129217]
+libraries/ = SubResource("AnimationLibrary_dnf6v")
+autoplay = &"stamp_anim"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

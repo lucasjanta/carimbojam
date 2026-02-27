@@ -1,32 +1,21 @@
-[gd_scene format=3 uid="uid://qq6vjpfdfcm4"]
+[gd_scene format=4 uid="uid://qq6vjpfdfcm4"]
 
 [ext_resource type="Script" uid="uid://cbyh84hfykt38" path="res://scenes/collectibles/carimbos/efeitos/pulo_duplo.gd" id="1_indke"]
 [ext_resource type="Texture2D" uid="uid://kpbahjffpqqe" path="res://assets/arma e carimbos/jump_mark.png" id="2_sxomy"]
 [ext_resource type="AudioStream" uid="uid://sdyrwk6c4vov" path="res://assets/SFX/jump2.wav" id="3_vc2tw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7onrb"]
+radius = 20.024984
 
 [sub_resource type="Animation" id="Animation_vc2tw"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/path = NodePath("carimbo/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -37,25 +26,13 @@ tracks/1/keys = {
 resource_name = "stamp_anim"
 length = 0.6
 step = 0.1
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -63,13 +40,13 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("carimbo/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -82,15 +59,56 @@ _data = {
 &"stamp_anim": SubResource("Animation_qiaum")
 }
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_vc2tw"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAIAAAABSAQAAUklGRkoBAABXRUJQVlA4TD4BAAAvf8AfEB8gECBTAszYIiQgU5JHEjJp21DbXRvzANyq+gC31ra1zfv/vxQwk/owY5uKmYz7SPIiYTKOkNKjpPxXCH5+w9BE9J+B27aNaMC3Z36B/+pYWt2wagmSH5kiHetr0jWONWcCPqkP0F/Mf7f0f68bSf6Y/M4B+Ox35j/anKfyfuR1bh6ucMRRU9xuKAdUYTmfAlmOkgpSeYDHyQGuuNFFaORl+UpFyeR6V8veY7rwpvE8z8XPOpZWN6xaghWJkBZ0hzRjfdJwvRrj6Fqi731PWdQdhzMIX2JF1ne4OapjONwcU2f7eN1dZEmQ1ttCtfW9VHpbOmKPjVD5ZaGm69WEoLAuiNQSEWHjAXkK8ssgT8lDcPzY0mCkjQHrixsAN1cUHEktwYpEQEb3sbuXwcq/OXz99eXA118/FgA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiaum"]
+atlas = SubResource("PortableCompressedTexture2D_vc2tw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojl25"]
+atlas = SubResource("PortableCompressedTexture2D_vc2tw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7moey"]
+atlas = SubResource("PortableCompressedTexture2D_vc2tw")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dv8v"]
+atlas = SubResource("PortableCompressedTexture2D_vc2tw")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7e8si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiaum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojl25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7moey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dv8v")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 16.0
+}]
+
 [node name="pulo_duplo" type="Node2D" unique_id=1621109887]
 script = ExtResource("1_indke")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1980402966]
+visible = false
 texture = ExtResource("2_sxomy")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=230904564]
+[node name="carimbo" type="Area2D" parent="." unique_id=230904564]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=68133939]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="carimbo" unique_id=68133939]
 shape = SubResource("CircleShape2D_7onrb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1565805252]
@@ -100,4 +118,29 @@ libraries/ = SubResource("AnimationLibrary_ojl25")
 stream = ExtResource("3_vc2tw")
 autoplay = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=19521695]
+texture_filter = 1
+position = Vector2(1, -21)
+sprite_frames = SubResource("SpriteFrames_7e8si")
+animation = &"effect"
+autoplay = "effect"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/arma e carimbos/carimbo - efeitos.aseprite",
+"source_uid": 7949069320234443842
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c363da5a41b158fc1631198977ba34cd"
+
+[connection signal="body_entered" from="carimbo" to="." method="_on_area_2d_body_entered"]

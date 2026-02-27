@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cs0yed3h0xmo4"]
 
 [ext_resource type="Script" uid="uid://lptjep65wgjh" path="res://scenes/actors/enemies/pequeno_grampeador.gd" id="1_msyt5"]
-[ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="3_mhbn3"]
 [ext_resource type="Script" uid="uid://d3bbo3136ngqs" path="res://scripts/state_machine/state_machine.gd" id="3_qh3c7"]
 [ext_resource type="Script" uid="uid://b42xhjrbbt0kk" path="res://scripts/state_machine/grampeador_pequeno/idle_state.gd" id="4_h7jf8"]
 [ext_resource type="Script" uid="uid://coc3xvmpjjv8g" path="res://scripts/state_machine/grampeador_pequeno/follow_state.gd" id="5_h7jf8"]
@@ -77,68 +76,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_qh3c7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DamageLabel:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-19.0]
-}
-
-[sub_resource type="Animation" id="Animation_h7jf8"]
-resource_name = "hit"
-length = 0.8
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DamageLabel:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-10.0, -35.0, -35.0, -50.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ol6c3"]
-_data = {
-&"RESET": SubResource("Animation_qh3c7"),
-&"hit": SubResource("Animation_h7jf8")
-}
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_3yt4e"]
 radius = 13.0
 
@@ -188,27 +125,6 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 1062397621041440185
 }
 metadata/_aseprite_wizard_source_file_hash_ = "8c226a2f6755111ad3a3e5c7d47f6541"
-
-[node name="DamageLabel" type="Label" parent="." unique_id=2058172995]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -19.0
-offset_right = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("3_mhbn3")
-text = "-10"
-
-[node name="DmgAnim" type="AnimationPlayer" parent="." unique_id=118729699]
-libraries/ = SubResource("AnimationLibrary_ol6c3")
 
 [node name="StateMachine" type="Node" parent="." unique_id=66442823]
 script = ExtResource("3_qh3c7")

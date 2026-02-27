@@ -7,7 +7,9 @@
 [ext_resource type="Resource" uid="uid://b16papwe5wjbr" path="res://scenes/collectibles/carimbos/recursos/pulo_duplo.tres" id="4_6jffa"]
 [ext_resource type="Resource" uid="uid://c1d0u5f24jl3a" path="res://scenes/collectibles/carimbos/recursos/explosao.tres" id="5_6jffa"]
 [ext_resource type="PackedScene" uid="uid://cs0yed3h0xmo4" path="res://scenes/actors/enemies/pequeno_grampeador.tscn" id="6_jcy27"]
+[ext_resource type="Resource" uid="uid://x246rndbi3iq" path="res://scenes/collectibles/carimbos/recursos/dash.tres" id="7_77k6j"]
 [ext_resource type="Resource" uid="uid://cnw5wek77b6c6" path="res://scenes/collectibles/carimbos/recursos/escudo.tres" id="8_8r123"]
+[ext_resource type="PackedScene" uid="uid://2crippebaax0" path="res://scenes/props/contrato.tscn" id="9_bmrm0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43dxg"]
 texture = ExtResource("1_i4g7q")
@@ -824,6 +826,10 @@ stamp_data = ExtResource("5_6jffa")
 position = Vector2(616, -38)
 stamp_data = ExtResource("8_8r123")
 
+[node name="CarimboPickup4" parent="." unique_id=85879041 instance=ExtResource("3_61odd")]
+position = Vector2(489, 119)
+stamp_data = ExtResource("7_77k6j")
+
 [node name="pequeno_grampeador" parent="." unique_id=1708798305 instance=ExtResource("6_jcy27")]
 position = Vector2(908, 394)
 
@@ -842,3 +848,12 @@ limit_bottom = 192
 [node name="stateLabel" type="Label" parent="CanvasLayer2" unique_id=1246613889]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="contrato" parent="." unique_id=1976842376 instance=ExtResource("9_bmrm0")]
+position = Vector2(629, 117)
+
+[node name="contrato2" parent="." unique_id=609494340 instance=ExtResource("9_bmrm0")]
+position = Vector2(700, -47)
+
+[node name="contrato3" parent="." unique_id=1385601020 instance=ExtResource("9_bmrm0")]
+position = Vector2(745, 59)

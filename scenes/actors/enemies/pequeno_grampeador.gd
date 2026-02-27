@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
-@onready var dmg_anim: AnimationPlayer = $DmgAnim
-@onready var damage_label: Label = $DamageLabel
+const HIT_LABEL = preload("uid://baookr7ohiu84")
+
 
 @export var follow_speed := 80.0
 @export var attack_speed := 250.0
@@ -35,8 +35,10 @@ func take_damage(dmg):
 		die()
 
 func show_hit(damage):
-	damage_label.text = "-" + str(damage)
-	dmg_anim.play("hit")
+	var new_lb = HIT_LABEL.instantiate()
+	new_lb.text = "-" + str(damage)
+	get_parent().add_child(new_lb)
+	new_lb.global_position = global_position
 
 func apply_knockback(direction : Vector2, force : float):
 	knockback_velocity = direction * force

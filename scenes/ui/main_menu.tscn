@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ct1iv60bei2m3" path="res://scenes/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="FontFile" uid="uid://b0e6b2j47ieef" path="res://assets/fonts/Blue Winter.otf" id="1_fe2o3"]
 [ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="2_1g8jr"]
+[ext_resource type="Script" uid="uid://cmlidwp57hwi5" path="res://scenes/ui/options_container.gd" id="4_m1kxf"]
 
 [node name="main_menu" type="Control" unique_id=728929812]
 layout_mode = 3
@@ -47,13 +48,13 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1584826930]
 layout_mode = 2
 theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1091018848]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 1
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=900194210]
 layout_mode = 2
@@ -66,55 +67,128 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=390125252]
+[node name="MenuContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=390125252]
 custom_minimum_size = Vector2(140, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=593552235]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MenuContainer" unique_id=593552235]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="StartButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1102477389]
+[node name="StartButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer" unique_id=1102477389]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_1g8jr")
 theme_override_font_sizes/font_size = 10
 text = "Iniciar"
 
-[node name="TutorialButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=512472171]
+[node name="TutorialButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer" unique_id=512472171]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1g8jr")
 theme_override_font_sizes/font_size = 10
 text = "Tutorial"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=865013228]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MenuContainer" unique_id=865013228]
 layout_mode = 2
 
-[node name="OptionsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1548596645]
+[node name="OptionsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer2" unique_id=1548596645]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_1g8jr")
 theme_override_font_sizes/font_size = 10
 text = "Configurações"
 
-[node name="CreditsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1343297836]
+[node name="CreditsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer2" unique_id=1343297836]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_1g8jr")
 theme_override_font_sizes/font_size = 10
 text = "Créditos"
 
-[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=404170030]
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuContainer" unique_id=404170030]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1g8jr")
 theme_override_font_sizes/font_size = 10
 text = "Sair"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="OptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2125568470]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+script = ExtResource("4_m1kxf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" unique_id=2023856867]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=334952936]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 10
+text = "Música"
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=333400929]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=271694553]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" unique_id=1539905889]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer2" unique_id=1764534766]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 10
+text = "SFX"
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer2" unique_id=892512783]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer2" unique_id=1016505218]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" unique_id=1180527011]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer3" unique_id=386969348]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 10
+text = "Tela Cheia"
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer3" unique_id=2064939451]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" unique_id=1927678259]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1g8jr")
+text = "Voltar"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer2/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/MusicSlider" to="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer2/SFXSlider" to="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer3/CheckBox" to="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" method="_on_check_box_toggled"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/BackButton" to="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" method="_on_back_button_pressed"]
