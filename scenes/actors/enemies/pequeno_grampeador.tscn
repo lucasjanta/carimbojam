@@ -83,7 +83,6 @@ radius = 13.0
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_msyt5")
-max_hp = 50.0
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=2106432831]
 collision_mask = 2

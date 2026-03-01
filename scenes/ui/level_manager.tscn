@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dfxavwqsvjkpg" path="res://scenes/ui/level_manager.gd" id="1_rqixy"]
 [ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="1_txgmf"]
-[ext_resource type="Texture2D" uid="uid://cbr2a2m40ajqq" path="res://assets/ui/locked.png" id="2_rqixy"]
 
 [node name="LevelManager" type="Control" unique_id=944049098]
 layout_mode = 3
@@ -33,6 +32,7 @@ layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1379858689]
 layout_mode = 2
+alignment = 1
 
 [node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1027667132]
 layout_mode = 2
@@ -40,180 +40,138 @@ size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_txgmf")
 text = "Voltar"
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1121751730]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=146301699]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_txgmf")
-text = "Selecionar Nível"
-horizontal_alignment = 1
-
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=222704784]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1248629854]
+[node name="Nivel1Container" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1248629854]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=450741067]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Nivel1Container" unique_id=450741067]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=14927080]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Nivel1Container/MarginContainer" unique_id=14927080]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1303084019]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Nivel1Container/MarginContainer/VBoxContainer" unique_id=1303084019]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
-text = "Nível 1"
+text = "Escritório"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=452476753]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Nivel1Container/MarginContainer/VBoxContainer" unique_id=452476753]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1577755626]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Nivel1Container/MarginContainer/VBoxContainer" unique_id=1577755626]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
 theme_override_font_sizes/font_size = 8
 text = "Tempo Máximo: 2:00"
 horizontal_alignment = 1
 
-[node name="StartL1Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1433146238]
+[node name="StartL1Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Nivel1Container/MarginContainer/VBoxContainer" unique_id=1433146238]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
 text = "Iniciar"
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=879459538]
-visible = false
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=600324926]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PanelContainer" unique_id=78129423]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 50
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PanelContainer/MarginContainer" unique_id=2069778154]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-texture = ExtResource("2_rqixy")
-expand_mode = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1597106077]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2" unique_id=291251310]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2" unique_id=157637211]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer" unique_id=2026131392]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer" unique_id=225653889]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=179918312]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=2114443677]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
-text = "Nível 2"
+text = "Melhor Tempo"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=2140075729]
-custom_minimum_size = Vector2(0, 60)
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=910967637]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=1266982819]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/VBoxContainer" unique_id=25651390]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_txgmf")
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1889090590]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1478904509]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
 theme_override_font_sizes/font_size = 8
-text = "Tempo Máximo: 1:30"
-horizontal_alignment = 1
+text = "mobs eliminados:"
 
-[node name="StartL2Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=99420288]
+[node name="grampeadoresTotal" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=2043415685]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
-text = "Iniciar"
+theme_override_font_sizes/font_size = 12
+text = "0/18"
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2" unique_id=469420427]
-visible = false
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/VBoxContainer" unique_id=506799902]
 layout_mode = 2
+alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/PanelContainer" unique_id=1984667327]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 50
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/PanelContainer/MarginContainer" unique_id=1441447307]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-texture = ExtResource("2_rqixy")
-expand_mode = 1
-
-[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=466346505]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3" unique_id=681474776]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer" unique_id=82079909]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/VBoxContainer" unique_id=304401055]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_txgmf")
-text = "Nível 3"
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/VBoxContainer" unique_id=1204970460]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/VBoxContainer" unique_id=1437431463]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=506272800]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
 theme_override_font_sizes/font_size = 8
-text = "Tempo Máximo: 1:00"
-horizontal_alignment = 1
+text = "contratos carimbados:"
 
-[node name="StartL3Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/VBoxContainer" unique_id=1770102997]
+[node name="grampeadoresTotal" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=565746901]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txgmf")
-text = "Iniciar"
+theme_override_font_sizes/font_size = 12
+text = "0/18"
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3" unique_id=1710885315]
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=1643071022]
 layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/PanelContainer" unique_id=155735312]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1007904788]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 50
+theme_override_fonts/font = ExtResource("1_txgmf")
+theme_override_font_sizes/font_size = 12
+text = "Nota:"
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/PanelContainer/MarginContainer" unique_id=159435539]
-custom_minimum_size = Vector2(20, 0)
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=716749164]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-texture = ExtResource("2_rqixy")
-expand_mode = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1972185507]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="NotaLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=2019204856]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_txgmf")
+text = "B"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Nivel1Container/MarginContainer/VBoxContainer/StartL1Button" to="." method="_on_start_l_1_button_pressed"]

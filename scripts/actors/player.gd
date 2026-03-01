@@ -14,9 +14,7 @@ class_name Player
 @export var speed := 250.0
 @export var jump_force := -300.0
 @export var gravity_force := 900.0
-@export var max_hp := 100.0
 
-var hp := 0.0
 var selected_stamp := 0
 var dashing := false
 var dash_timer := 0.3
@@ -24,10 +22,6 @@ var dash_speed := 500.0
 var dash_dir := 0
 var shielded := false
 
-
-func _ready() -> void:
-	hp = max_hp
-	stats_container.update_ui(max_hp, hp)
 	
 func update_inventory():
 	inventory.populate_stamps(carimbo_manager.collected_stamps)
@@ -37,10 +31,7 @@ func take_damage(damage):
 		shielded = false
 		shield_blob.visible = false
 	else:
-		hp -= damage
-		stats_container.update_ui(max_hp, hp)
-		if hp <= 0.0:
-			print("player is dead")
+		print("effect to lose time")
 
 func get_shield():
 	shield_blob.visible = true

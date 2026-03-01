@@ -13,11 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cdqio3fvra82k" path="res://assets/arma e carimbos/shield_blob.png" id="9_uqfkb"]
 [ext_resource type="Script" uid="uid://ch1hy6qfltocf" path="res://scripts/UI/carimbos_container.gd" id="11_kggx2"]
 [ext_resource type="Script" uid="uid://b8dl4rrrivl36" path="res://scripts/UI/carimbos_ui.gd" id="12_c4rn8"]
-[ext_resource type="Texture2D" uid="uid://br82i63djphsm" path="res://assets/ui/life_bar/under.png" id="14_0878f"]
-[ext_resource type="Script" uid="uid://v3x5f31qu3nf" path="res://scripts/UI/stats_container.gd" id="14_dferu"]
 [ext_resource type="Script" uid="uid://djcsynxh0eig3" path="res://scripts/UI/equipped_slot.gd" id="14_nmlhc"]
-[ext_resource type="Texture2D" uid="uid://cj626uqptqwua" path="res://assets/ui/life_bar/over.png" id="15_dferu"]
-[ext_resource type="Texture2D" uid="uid://dyntac3m8baqy" path="res://assets/ui/life_bar/progress.png" id="16_t62v4"]
 [ext_resource type="Script" uid="uid://dveiay6om1km0" path="res://scripts/UI/pause_menu.gd" id="18_t62v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wueq"]
@@ -433,7 +429,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.38431373, 0.101960786, 0.6039216, 0.6666667)
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -487,18 +483,6 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0878f"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.38431373, 0.101960786, 0.6039216, 0.6666667)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
 
 [node name="player" type="CharacterBody2D" unique_id=683210676 groups=["player"]]
 collision_layer = 2
@@ -685,33 +669,34 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI" unique_id=1589537655]
-custom_minimum_size = Vector2(80, 30)
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -30.0
-grow_horizontal = 0
+offset_left = -28.0
+offset_top = -20.0
+offset_right = 28.0
+grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dferu")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/PanelContainer" unique_id=2116620066]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="CarimbosUI" type="HBoxContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer" unique_id=724357023]
 layout_mode = 2
+theme_override_constants/separation = 2
 alignment = 1
 script = ExtResource("12_c4rn8")
 
 [node name="equipped_slot" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=834069672]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -749,7 +734,7 @@ horizontal_alignment = 1
 
 [node name="equipped_slot2" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=560905705]
 self_modulate = Color(1, 1, 1, 0.49803922)
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -787,7 +772,7 @@ horizontal_alignment = 1
 
 [node name="equipped_slot3" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI" unique_id=1060138432]
 self_modulate = Color(1, 1, 1, 0.49803922)
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -822,48 +807,6 @@ theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 4
 text = "3"
 horizontal_alignment = 1
-
-[node name="StatsContainer" type="PanelContainer" parent="CanvasLayer/UI" unique_id=145713039]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -30.0
-offset_right = 134.0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0878f")
-script = ExtResource("14_dferu")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/StatsContainer" unique_id=1052067518]
-layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/StatsContainer/MarginContainer" unique_id=1027065782]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer" unique_id=181325045]
-custom_minimum_size = Vector2(24, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer" unique_id=1453428809]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 2
-
-[node name="LifeBar" type="TextureProgressBar" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1527173708]
-layout_mode = 2
-value = 61.0
-texture_under = ExtResource("14_0878f")
-texture_over = ExtResource("15_dferu")
-texture_progress = ExtResource("16_t62v4")
-tint_progress = Color(0.7764706, 0, 0, 0.70980394)
-
-[node name="BuffsContainer" type="HBoxContainer" parent="CanvasLayer/UI/StatsContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=116005200]
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=620540459]
 process_mode = 2

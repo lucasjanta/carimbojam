@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b0e6b2j47ieef" path="res://assets/fonts/Blue Winter.otf" id="1_fe2o3"]
 [ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="2_1g8jr"]
 [ext_resource type="Script" uid="uid://cmlidwp57hwi5" path="res://scenes/ui/options_container.gd" id="4_m1kxf"]
+[ext_resource type="Script" uid="uid://dlhqxmfafr14p" path="res://scenes/ui/credits_container.gd" id="5_x2yvf"]
 
 [node name="main_menu" type="Control" unique_id=728929812]
 layout_mode = 3
@@ -58,9 +59,11 @@ theme_override_constants/separation = 1
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=900194210]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("1_fe2o3")
 theme_override_font_sizes/font_size = 20
-text = "Carimbo do Chefe"
+text = "Carimbos do Chefe"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1039834306]
@@ -183,6 +186,49 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1g8jr")
 text = "Voltar"
 
+[node name="CreditsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1135950438]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("5_x2yvf")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CreditsContainer" unique_id=344374772]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 20
+text = "Créditos"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CreditsContainer" unique_id=650532162]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CreditsContainer/VBoxContainer" unique_id=319047103]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 14
+text = "Lucas Ferreira - Programador"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CreditsContainer/VBoxContainer" unique_id=317737913]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 14
+text = "Guilherme Santos  - Artista 2D"
+horizontal_alignment = 1
+
+[node name="VoltarButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CreditsContainer" unique_id=1190703082]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 14
+text = "Voltar"
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuContainer/HBoxContainer2/OptionsButton" to="." method="_on_options_button_pressed"]
@@ -192,3 +238,4 @@ text = "Voltar"
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer2/SFXSlider" to="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer3/CheckBox" to="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" method="_on_check_box_toggled"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/BackButton" to="PanelContainer/MarginContainer/VBoxContainer/OptionsContainer" method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CreditsContainer/VoltarButton" to="PanelContainer/MarginContainer/VBoxContainer/CreditsContainer" method="_on_voltar_button_pressed"]
