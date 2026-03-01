@@ -922,14 +922,14 @@ theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 10
 text = "Resumir"
 
-[node name="ResumeButton2" type="Button" parent="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1895709629]
+[node name="RetryButton" type="Button" parent="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1895709629]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("8_xx81n")
 theme_override_font_sizes/font_size = 10
 text = "De novo"
 
-[node name="ResumeButton3" type="Button" parent="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=78962884]
+[node name="MenuButton" type="Button" parent="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=78962884]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("8_xx81n")
@@ -939,3 +939,6 @@ text = "Menu"
 [connection signal="value_changed" from="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MusicSlider" to="CanvasLayer/PauseMenu" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/SFXSlider" to="CanvasLayer/PauseMenu" method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/CheckBox" to="CanvasLayer/PauseMenu" method="_on_check_box_toggled"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ResumeButton" to="CanvasLayer/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="CanvasLayer/PauseMenu" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MenuButton" to="CanvasLayer/PauseMenu" method="_on_menu_button_pressed"]

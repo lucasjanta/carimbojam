@@ -5,6 +5,6 @@ extends Area2D
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "carimbo":
-		print("+ 1 contrato")
+		Global.contratos += 1
 		animation_player.play("aprovado")
 		

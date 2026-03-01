@@ -123,7 +123,6 @@ size = Vector2(24, 28)
 [node name="grampeadorpai" type="CharacterBody2D" unique_id=1957967587]
 collision_layer = 2
 script = ExtResource("1_rdejh")
-speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905313130]
 shape = SubResource("CircleShape2D_p7paf")

@@ -1,10 +1,17 @@
 extends Node2D
 @onready var phantom_camera: PhantomCamera2D = $Camera2D/PhantomCameraHost/PhantomCamera2D
+@onready var time_label: Label = $CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/TimeLabel
+@onready var grampeadores_label: Label = $CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GrampeadoresLabel
+@onready var contratos_label: Label = $CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ContratosLabel
 
 var on_l1 := false
 var on_l2 := false
 var on_l3 := false
 var on_l4 := false
+
+func _ready() -> void:
+	Global.start_timer()
+	Global.reset_points()
 
 func _on_lv_1_area_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -66,3 +73,15 @@ func set_room_limits(left, right, top, bottom):
 	phantom_camera.limit_right = right
 	phantom_camera.limit_top = top
 	phantom_camera.limit_bottom = bottom
+
+func _process(delta: float) -> void:
+	time_label.text = format_time(Global.time_elapsed)
+	grampeadores_label.text = "%s/18" % Global.grampeadores
+	contratos_label.text = "%s/18" % Global.contratos
+	
+func format_time(time: float) -> String:
+	var total_seconds = int(time)
+	var minutes = total_seconds / 60
+	var seconds = total_seconds % 60
+	
+	return "%02d:%02d" % [minutes, seconds]

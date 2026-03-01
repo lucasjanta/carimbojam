@@ -33,3 +33,20 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+
+func _on_resume_button_pressed() -> void:
+	visible = false
+	get_tree().paused = false
+	
+	
+
+
+func _on_retry_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

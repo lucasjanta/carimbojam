@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_excbq"]
 [ext_resource type="PackedScene" uid="uid://m834c5mg4bd2" path="res://scenes/actors/enemies/grampeadorpai.tscn" id="9_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://bob8eko6kql4q" path="res://scenes/transition_screen.tscn" id="10_qxy0u"]
+[ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="18_np2pn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwr0g"]
 size = Vector2(1634, 308)
@@ -1142,6 +1143,93 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="TransitionScreen" parent="CanvasLayer" unique_id=1860653042 instance=ExtResource("10_qxy0u")]
 visible = false
 mouse_filter = 2
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1909808061]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control" unique_id=1736940050]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_bottom = 48.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer" unique_id=1695763919]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer" unique_id=1165378500]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=1718754660]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1728830794]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_np2pn")
+theme_override_font_sizes/font_size = 6
+text = "Tempo:"
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1747613160]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=387571905]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_np2pn")
+theme_override_font_sizes/font_size = 12
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=385978935]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1201129707]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_np2pn")
+theme_override_font_sizes/font_size = 6
+text = "grampeadores"
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1950638432]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GrampeadoresLabel" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2023968843]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_np2pn")
+theme_override_font_sizes/font_size = 6
+text = "0/18"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=1537678507]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2019020419]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_np2pn")
+theme_override_font_sizes/font_size = 6
+text = "contratos"
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1645409278]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContratosLabel" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=847429304]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_np2pn")
+theme_override_font_sizes/font_size = 6
+text = "0/18"
 
 [connection signal="body_entered" from="lv1area" to="." method="_on_lv_1_area_body_entered"]
 [connection signal="body_exited" from="lv1area" to="." method="_on_lv_1_area_body_exited"]

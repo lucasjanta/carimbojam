@@ -6,7 +6,6 @@ class_name Player
 @onready var inventory: Control = $CanvasLayer/Inventory
 @onready var carimbos_selecionados: HBoxContainer = $CanvasLayer/UI/PanelContainer/MarginContainer/CarimbosUI
 @onready var stamp_effect_position: Marker2D = $StampEffectPosition
-@onready var stats_container: PanelContainer = $CanvasLayer/UI/StatsContainer
 @onready var state_machine: Node = $StateMachine
 @onready var pause_menu: Control = $CanvasLayer/PauseMenu
 @onready var shield_blob: Sprite2D = $ShieldBlob
@@ -31,7 +30,7 @@ func take_damage(damage):
 		shielded = false
 		shield_blob.visible = false
 	else:
-		print("effect to lose time")
+		Global.add_penalty(5.0)
 
 func get_shield():
 	shield_blob.visible = true
@@ -98,6 +97,3 @@ func _unhandled_input(event: InputEvent) -> void:
 			selected_stamp = 2
 		carimbo_manager.current_slot = selected_stamp
 		carimbos_selecionados.change_selected_slot(selected_stamp)
-	#
-	#if event.is_action_pressed("use_stamp"):
-		#carimbo_manager.use_current_stamp()

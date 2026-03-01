@@ -33,6 +33,7 @@ func take_damage(dmg):
 	hp -= dmg
 	show_hit(dmg)
 	if hp <= 0:
+		Global.grampeadores += 1
 		die()
 
 func show_hit(damage):
