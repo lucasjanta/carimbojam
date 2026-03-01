@@ -3,6 +3,7 @@ extends Node2D
 @onready var time_label: Label = $CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/TimeLabel
 @onready var grampeadores_label: Label = $CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GrampeadoresLabel
 @onready var contratos_label: Label = $CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ContratosLabel
+@onready var score_screen: Control = $CanvasLayer/Score
 
 var on_l1 := false
 var on_l2 := false
@@ -85,3 +86,22 @@ func format_time(time: float) -> String:
 	var seconds = total_seconds % 60
 	
 	return "%02d:%02d" % [minutes, seconds]
+
+func end_level():
+	Global.stop_timer()
+	Global.final_score()
+	Global.check_highscore()
+	get_tree().paused = true
+	score_screen.visible = true
+	score_screen.pop_info()
+
+
+func _on_retry_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

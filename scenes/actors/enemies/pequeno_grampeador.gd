@@ -3,11 +3,10 @@ class_name Enemy
 
 const HIT_LABEL = preload("uid://baookr7ohiu84")
 
-
 @export var follow_speed := 80.0
 @export var attack_speed := 250.0
 @export var dash_distance := 200.0
-@export var max_hp := 20.0
+@export var max_hp := 10.0
 @export var base_dmg := 20.0
 
 var hp := 0.0
@@ -27,7 +26,6 @@ func _physics_process(delta: float) -> void:
 		velocity = knockback_velocity
 		knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, 1000 * delta)
 	move_and_slide()
-	
 
 func take_damage(dmg):
 	hp -= dmg

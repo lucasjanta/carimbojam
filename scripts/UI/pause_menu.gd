@@ -2,6 +2,7 @@ extends Control
 @onready var music_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MusicSlider
 @onready var sfx_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/SFXSlider
 @onready var check_box: CheckBox = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/CheckBox
+@onready var player: Player = $"../.."
 
 
 # Called when the node enters the scene tree for the first time.
@@ -44,7 +45,8 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_retry_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().paused = false
+	player.get_parent().get_tree().reload_current_scene()
 
 
 func _on_menu_button_pressed() -> void:

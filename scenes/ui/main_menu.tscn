@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ct1iv60bei2m3" path="res://scenes/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="FontFile" uid="uid://b0e6b2j47ieef" path="res://assets/fonts/Blue Winter.otf" id="1_fe2o3"]
 [ext_resource type="FontFile" uid="uid://cu1myglw4ksdf" path="res://assets/fonts/Nature Sunset.otf" id="2_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://dxb3lmmpd583s" path="res://assets/bg/bg-Recovered.png" id="2_uhagc"]
 [ext_resource type="Script" uid="uid://cmlidwp57hwi5" path="res://scenes/ui/options_container.gd" id="4_m1kxf"]
 [ext_resource type="Script" uid="uid://dlhqxmfafr14p" path="res://scenes/ui/credits_container.gd" id="5_x2yvf"]
 
@@ -24,19 +25,7 @@ offset_top = -71.0
 offset_right = 91.0
 offset_bottom = 71.0
 grow_vertical = 2
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=480577587]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = -71.0
-offset_bottom = 71.0
-grow_horizontal = 0
-grow_vertical = 2
+texture = ExtResource("2_uhagc")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=146480673]
 layout_mode = 1
